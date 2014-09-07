@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Vasin Dmitriy"]
   spec.email         = ["vasindima779@gmail.com"]
   spec.summary       = "This is a small aplication for turn get pocket from terminal"
-  spec.homepage      = "https://github.com/demitriydn/..."
+  spec.homepage      = "https://github.com/DemitriyDN/SendToPocket"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
