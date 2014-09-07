@@ -2,5 +2,12 @@
 
 require './lib/get_pocket_send'
 
-pocket = GetPocketSend::CLI.new('vasindima779@gmail.com', 'DKNDEKaMaDima90')
-pocket.start
+begin
+  raise Interrupt unless ARGV.size == 2
+
+  pocket = GetPocketSend::CLI.new(ARGV[0], ARGV[1])
+  pocket.start
+rescue Interrupt
+  $stderr.puts 'Quitting: Please insert all credentials...'
+  exit 1
+end

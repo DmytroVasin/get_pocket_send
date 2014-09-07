@@ -1,6 +1,6 @@
 module GetPocketSend
   module Messages
-    def message_save_article?
+    def message_save_article
       output.puts "Save this article? #{yes} / #{no} / #{close}"
     end
 
@@ -33,7 +33,7 @@ module GetPocketSend
       when 'c', 'close'
         raise SystemExit
       else
-        message_save_article?
+        message_save_article
         handling_permission?
       end
     end

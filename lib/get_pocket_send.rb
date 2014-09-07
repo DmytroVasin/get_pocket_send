@@ -31,28 +31,28 @@ module GetPocketSend
             title = title_and_link[0]
             link  = title_and_link[1]
 
-            # need to use block of code...
-            puts "#{index + 1}: #{title}"
-            puts "( #{link} )"
+            output.puts "#{index + 1}: #{title}"
+            output.puts "( #{link} )"
 
-            message_save_article?
+            message_save_article
 
             if handling_permission?
               send_email_with({ body: link, subject: title })
             else
               message_next
-              next
             end
           end
         end
       end
     end
 
+    private
     def error_handler
       begin
         yield
       rescue SystemExit
         message_goodbie
+        exit 1
       end
     end
   end
