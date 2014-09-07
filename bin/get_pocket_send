@@ -2,5 +2,5 @@
 
 require './lib/get_pocket_send'
 
-pocket = GetPocketSend::MyPockety.new
+pocket = GetPocketSend::CLI.new
 pocket.start
