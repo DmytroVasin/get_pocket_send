@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/get_pocket_send'
+# require './lib/get_pocket_send'
+require 'get_pocket_send'
 
 begin
   raise Interrupt unless ARGV.size == 2
