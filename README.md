@@ -1,30 +1,25 @@
 # GetPocketSend
 
-TODO: Write a gem description
+rubygems: https://rubygems.org/gems/get_pocket_send
+
+This is simple gem for scrapping articles from http://itc.ua/ to your Pocket app.
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'get_pocket_send'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install it yourself as:
 
     $ gem install get_pocket_send
 
 ## Usage
 
-TODO: Write usage instructions here
+simple run next command:
+
+    $ get_pocket_sent 'your_email' 'your_password'
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/get_pocket_send/fork )
+1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
