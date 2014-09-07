@@ -2,5 +2,5 @@
 
 require './lib/get_pocket_send'
 
-pocket = GetPocketSend::CLI.new
+pocket = GetPocketSend::CLI.new('vasindima779@gmail.com', 'DKNDEKaMaDima90')
 pocket.start

@@ -2,16 +2,21 @@
 
 require './lib/get_pocket_send/parser'
 require './lib/get_pocket_send/messages'
+require './lib/get_pocket_send/email_sender'
 
 module GetPocketSend
   class CLI
     include Messages
+    include EmailSender
 
     # [TODO] No needed declaration...
-    attr_accessor :input, :output
-    def initialize
+    attr_accessor :input, :output, :email, :password
+    def initialize email, password
       self.input  = $stdin
       self.output = $stdout
+
+      @email = email
+      @password = password
     end
 
 
@@ -20,9 +25,7 @@ module GetPocketSend
         hash = Parser.get_title_and_link_by
 
         hash.each do |key, value|
-          puts "------- Site Name -------"
-          puts key
-          puts "------- Site Name -------"
+          message_current_site(key)
 
           value.each_with_index do |title_and_link, index|
             title = title_and_link[0]
@@ -34,10 +37,12 @@ module GetPocketSend
 
             message_save_article?
 
-            handling_permission
-
-            puts "-----------------"
-
+            if handling_permission?
+              send_email_with({ body: link, subject: title })
+            else
+              message_next
+              next
+            end
           end
         end
       end
