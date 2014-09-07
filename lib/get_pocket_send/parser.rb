@@ -5,24 +5,23 @@ module GetPocketSend
   class Parser
     class << self
       def get_title_and_link_by
-        sites_and_selectors.each do |element|
+        a = Hash.new()
+
+        sites_and_selectors.map do |element|
           name, url, block_selector, title_selector, link_selector = element
 
           page = get_page_content(url)
-
-          # p page.css(block_selector).css('h1.post-title a').first
-
           title_with_link = page.css(block_selector).map do |block|
             [
-              block.css(title_selector).children.first,
+              block.css(title_selector).children.first.text,
               block.css(link_selector).first.attr('href'),
             ]
           end
 
-          a = Hash.new()
           a[name] = title_with_link
-          p a
         end
+
+        a
       end
 
       # private
