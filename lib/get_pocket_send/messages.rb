@@ -22,6 +22,7 @@ module GetPocketSend
       output.puts "------- Site Name -------"
     end
 
+    # [TODO]: make it be refinement/using String class...
     def handling_permission?
       permition = input.gets.chomp
 
