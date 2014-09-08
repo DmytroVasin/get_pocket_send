@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-require './lib/get_pocket_send/parser'
-require './lib/get_pocket_send/messages'
-require './lib/get_pocket_send/email_sender'
+require 'get_pocket_send/parser'
+require 'get_pocket_send/messages'
+require 'get_pocket_send/email_sender'
 
 module GetPocketSend
   class CLI
